@@ -1,0 +1,39 @@
+/* reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, .box {
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  --x: 50%;
+  --y: 50%;
+}
+
+/* container */
+.box {
+  position: relative;
+  overflow: hidden;
+}
+
+/* video fills the container */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* overlay "spotlight" that follows the mouse */
+.light {
+  position: absolute;
+  inset: 0;                 /* full size */
+  pointer-events: none;     /* don't block mouse */
+  mix-blend-mode: multiply; /* optional: deepens dark edges */
+  transition: background 80ms linear; /* small smoothing */
+  background: radial-gradient(
+    circle 220px at var(--x) var(--y),
+   rgba(0, 0, 0, 0.622)
+  );
+}
